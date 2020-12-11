@@ -1,0 +1,10 @@
+{
+  "name": "MMM-DailyText",
+  "version": "1.0.0",
+  "description": "Get daily text from jw.org.",
+  "author": "schunsky",
+  "license": "MIT",
+  "dependencies": {
+    "jsdom": "latest"
+  }
+}
