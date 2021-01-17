@@ -55,8 +55,8 @@ module.exports = NodeHelper.create({
 					var content = [];
 					
 					// --- Get theme scripture --- //
-					var nodeList = dom.window.document.querySelectorAll('p.themeScrp em');
-					content[0] = nodeList[0].textContent + nodeList[1].textContent;
+					var nodeList = dom.window.document.querySelectorAll('p.themeScrp');
+					content[0] = nodeList[0].textContent;
 					
 					// --- Get body text --- //
 					var nodeList = dom.window.document.querySelectorAll('p.sb');
