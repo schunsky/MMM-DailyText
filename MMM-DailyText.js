@@ -18,7 +18,8 @@
  * 
  * Change history:
  * 		11.Dec. 2020	Initial release
- * 
+ * 		21.Jan. 2021	Fixed an issue where sendReqContent() is not called when config.updateTime is set to "00:00".
+ * 						date.getHours() and date.getMinutes() can return 1 digit number.
  * License:
  * 		MIT Licensed.
  */
@@ -73,9 +74,10 @@ Module.register("MMM-DailyText", {
 	sendReqContentAtTime: function() {
 		var date = new Date();
 		strTime = "hh:mm";
-		strTime = strTime.replace(/hh/g, date.getHours());
-		strTime = strTime.replace(/mm/g, date.getMinutes());
-	
+		strTime = strTime.replace(/hh/g, ("0" + date.getHours()).slice(-2));
+		strTime = strTime.replace(/mm/g, ("0" + date.getMinutes()).slice(-2));
+		Log.log("sendReqContentAtTime() is called at " + strTime + " where updateTime is " + this.config.updateTime);
+
 		// Send a request for the contents at defined time
 		if(strTime == this.config.updateTime) {
 			this.sendReqContent();
